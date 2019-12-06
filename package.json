@@ -1,11 +1,14 @@
 {
-  "name": "moviedex-mason-angel",
+  "name": "moviedex-heroku-deployment",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server"
+    "test": "mocha --require test/setup.js",
+    "dev": "nodemon server.js",
+    "start": "node server.js",
+    "predeploy": "npm audit",
+    "deploy": "git push heroku master"
   },
   "repository": {
     "type": "git",
@@ -27,5 +30,8 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.1"
+  },
+  "engines": {
+       "node": "12.13.0"
   }
 }
